@@ -304,7 +304,7 @@ public enum SubtleVolumeError: Error {
 
     let totalAnimationTime: TimeInterval = 1.2 + displayAnimationDuration + hideAnimationDuration
     UIView.animateKeyframes(withDuration: animated ? totalAnimationTime : 0, delay: 0, options: .beginFromCurrentState, animations: { () -> Void in
-      UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: displayAnimationDuration / totalAnimationTime, animations: {
+      UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: self.displayAnimationDuration / totalAnimationTime, animations: {
         switch self.animation {
         case .none: break
         case .fadeIn:
@@ -315,7 +315,7 @@ public enum SubtleVolumeError: Error {
         }
       })
 
-      UIView.addKeyframe(withRelativeStartTime: 1 - (hideAnimationDuration / totalAnimationTime), relativeDuration: (hideAnimationDuration / totalAnimationTime), animations: { () -> Void in
+      UIView.addKeyframe(withRelativeStartTime: 1 - (self.hideAnimationDuration / totalAnimationTime), relativeDuration: (self.hideAnimationDuration / totalAnimationTime), animations: { () -> Void in
         switch self.animation {
         case .none: break
         case .fadeIn:
